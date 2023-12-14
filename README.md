@@ -1,6 +1,6 @@
 # Appley
 
-[Appley](https://itksweb.github.io/appley/) is a basic utility app that houses other small utility apps that can make your life a whole lot easier. Some of the apps included are digital clock, countdown timer, text analyzer, and many more to come.
+[Appley](https://appley.vercel.app) is a basic utility app that houses other small utility apps that can make your life a whole lot easier. Some of the apps included are digital clock, countdown timer, text analyzer, and many more to come.
 
 ## Table of contents
 
@@ -22,7 +22,7 @@
 ### Links
 
 - Solution URL: [here](https://github.com/itksweb/appley)
-- Live Site URL: [here](https://itksweb.github.io/appley/)
+- Live Site URL: [here](https://appley.vercel.app)
 
 ## My process
 
