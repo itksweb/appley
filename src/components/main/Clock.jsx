@@ -11,15 +11,16 @@ const Clock = () => {
     setMins(date.getMinutes());
     setHrs(date.getHours());
   }, 1000);
+  const formatTime =(time)=> time.toString().padStart(2,"0");
 
   return (
     <div className="container">
       <div className="clock">
-        <span id="hrs">{(hrs < 10 && hrs > 0 ? "0" : "") + hrs}</span>
+        <span id="hrs">{formatTime(hrs)}</span>
         <span>:</span>
-        <span id="mins">{(mins < 10 && mins > 0 ? "0" : "") + mins}</span>
+        <span id="mins">{formatTime(mins)}</span>
         <span>:</span>
-        <span id="secs">{(secs < 10 && secs > 0 ? "0" : "") + secs}</span>
+        <span id="secs">{formatTime(secs)}</span>
       </div>
     </div>
   );
