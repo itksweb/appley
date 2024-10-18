@@ -6,7 +6,7 @@ const App = () => {
   const isSidebar = useSelector((state) => state.sidebar.isSidebar);
 
   return (
-    <div className="hero">
+    <div className="w-full min-h-[100vh] text-white flex justify-center items-center bg-hero-gradient py-5">
       {isSidebar && <Sidebar />}
       {!isSidebar && <Main />}
     </div>
