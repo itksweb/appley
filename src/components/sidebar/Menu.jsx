@@ -7,7 +7,7 @@ const Menu = () => {
   const handleClick = (e) => {
     let appId = e.target.id;
     if (appId > 0) {
-      appId === "3"
+      appId === "4"
         ? dispatch(sidebarActions.seeSchedule())
         : dispatch(sidebarActions.setApp(+appId));
     }
@@ -23,6 +23,9 @@ const Menu = () => {
           Countdown Timer
         </li>
         <li className="clicker" onClick={handleClick} id="3">
+          Countdown Timer 2
+        </li>
+        <li className="clicker" onClick={handleClick} id="4">
           Schedule Countdown Timer
         </li>
       </ul>
