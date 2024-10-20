@@ -31,5 +31,6 @@ const sidebarSlice = createSlice({
   },
 });
 
-export const sidebarActions = sidebarSlice.actions;
+export const { seeSchedule, isSidebar, toggleMenu, setApp } =
+  sidebarSlice.actions;
 export default sidebarSlice.reducer;

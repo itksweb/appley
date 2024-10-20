@@ -82,21 +82,17 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="countdown-timer-container">
-      <h2 className="countdown-name">
+    <div className="absolute top-[50%] left-[50%] min-w-[400px] min-h-[200px] -translate-x-1/2 -translate-y-1/2 after:content[''] after:w-[180px] after:h-[180px] after:bg-[#f41b75] after:rounded-[50%] after:absolute after:right-[-30px] after:bottom-[-50px] after:-z-1 before:content[''] before:w-[180px] before:h-[180px] before:bg-[#f41b75] before:rounded-[5px] before:absolute before:left-[-50px] before:top-[-50px] before:-z-1">
+      <h2 className="uppercase text-center mb-5">
         {countdownStarted ? eventName : "Countdown Timer"}
       </h2>
-      <p className="countdown-date">
-        {countdownStarted && formatDate(eventDate)}
-      </p>
-
       {!countdownStarted ? (
-        <form className="countdown-form bg-[#f6f6f6] flex flex-col justify-center w-80 p-5">
+        <form className="countdown-form bg-[#EB00FF]/[0.11] flex flex-col justify-center w-80 outline-none border-none rounded-[10px] backdrop-blur-2xl p-5">
           <label htmlFor="title" className="mb-2 font-bold">
             Event Name
           </label>
           <input
-            className="bg-[#d1f1ee] mb-3 p-3 w-full outline-none border-[1px] border-[#dfdfdf]"
+            className="bg-[#d1f1ee]/[0.11] mb-3 p-3 w-full outline-none border-none rounded-[10px] shadow-gray-100"
             name="title"
             type="text"
             placeholder="Enter event name"
@@ -108,14 +104,17 @@ const CountdownTimer = () => {
             Event Date
           </label>
           <input
-            className="bg-[#d1f1ee] mb-3 p-3 w-full outline-none border-[1px] border-[#dfdfdf]"
+            className="bg-[#d1f1ee]/[0.11] mb-3 p-3 w-full outline-none border-none rounded-[10px] shadow-gray-100"
             name="date-picker"
             type="date"
             value={eventDate}
             onChange={(e) => setEventDate(e.target.value)}
             onClick={(e) => (e.target.type = "date")}
           />
-          <button className="bg-[#038a7f]" onClick={handleSetCountdown}>
+          <button
+            className="cursor-pointer py-[10px] px-[15px] text-[0.8em] rounded-[10px] border-none font-medium uppercase bg-white text-[#800080]"
+            onClick={handleSetCountdown}
+          >
             Start Countdown
           </button>
         </form>

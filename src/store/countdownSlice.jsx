@@ -8,20 +8,8 @@ const countdownSlice = createSlice({
     timeLeft: 10 * 60,
     schedule: [],
     timerLabel: "",
-    items: [],
   },
   reducers: {
-    setItem(state, action) {
-      state.items = action.payload;
-    },
-    unsetItem(state, action) {
-      const indexPresent = state.items.findIndex(
-        (i) => i.id === action.payload
-      );
-      let altItems = [...state.items];
-      altItems.splice(indexPresent, 1);
-      state.items = [...altItems];
-    },
     setPlay(state, action) {
       state.play = action.payload ? action.payload : !state.play;
     },
@@ -30,6 +18,9 @@ const countdownSlice = createSlice({
     },
     setTimerLabel(state, action) {
       state.timerLabel = action.payload;
+    },
+    inputChange(state, action) {
+      state.timeLeft = action.payload;
     },
     keypress(state, action) {
       let { key, keyCode, timedout } = action.payload;
@@ -63,5 +54,13 @@ const countdownSlice = createSlice({
   },
 });
 
-export const countdownActions = countdownSlice.actions;
+export const {
+  setSchedule,
+  setTimeLeft,
+  setTimeUp,
+  setTimerLabel,
+  keypress,
+  setPlay,
+  inputChange,
+} = countdownSlice.actions;
 export default countdownSlice.reducer;

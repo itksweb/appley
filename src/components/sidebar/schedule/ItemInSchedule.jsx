@@ -1,44 +1,45 @@
 import img from "../../../assets/images/close-circle-outline.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { countdownActions } from "../../../store/countdownSlice";
 
-const ItemInSchedule = ({ label, time }) => {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.app.items);
-
+const ItemInSchedule = ({ label, time, setItems }) => {
   const removeItem = (e) => {
-    let itemId = e.target.closest(".list-item").id;
-    dispatch(countdownActions.unsetItem(itemId));
+    setItems((prev) => prev.filter((item) => item.label !== e.target.id));
   };
   const swell = (e) => {
-    e.target.classList.add("newc");
+    e.target.classList.add("scale-125");
   };
   const shrink = (e) => {
-    e.target.classList.remove("newc");
+    e.target.classList.remove("scale-125");
   };
 
   let timeFormatted;
   if (time >= 1) {
-    timeFormatted =
-      Math.floor(time) +
-      (time < 2 ? " min " : " mins ") +
-      ((time * 60) % 60 ? ((time * 60) % 60) + " secs " : "");
+    let mins = Math.floor(time);
+    let secs = (time * 60) % 60;
+    const min = time < 2 ? " min " : " mins ";
+    timeFormatted = `${mins}${min} ${secs ? `${secs} secs` : ""} `;
   } else {
     timeFormatted = time * 60 + " secs";
   }
 
   return (
-    <li className="list-item" draggable="true" id={label}>
-      <div className="details">
-        <span className="label">{label}</span>
-        <span className="time">{timeFormatted}</span>
+    <li
+      className=" flex items-center justify-between bg-white rounded-xl hover:bg-[#f3f3f3] "
+      draggable="true"
+      id={label}
+    >
+      <div className="flex gap-[10px] w-[80%] ">
+        <span className="w-[60%] text-[0.9em]  ">{label}</span>
+        <span className="text-[0.8em] self-center w-[40%] ">
+          {timeFormatted}
+        </span>
       </div>
       <img
         src={img}
-        className="close-button"
+        className="w-[16px] h-[16px] transition duration-200 "
         onClick={removeItem}
         onMouseOver={swell}
         onMouseOut={shrink}
+        id={label}
       />
     </li>
   );

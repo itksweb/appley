@@ -10,6 +10,9 @@ export default {
       backgroundImage: {
         "hero-gradient": "linear-gradient(45deg, #08001f, #30197d)",
       },
+      boxShadow: {
+        bxs: "0 15px 30px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [],
